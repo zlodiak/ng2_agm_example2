@@ -1,0 +1,15 @@
+<div class="title">Детальная информация</div>
+
+<div class="body">
+	<form class="form">
+	  <mat-form-field class="line">
+	    <input matInput placeholder="Текст балуна" [(ngModel)]="balloonText" name="balloonText">
+	  </mat-form-field>
+	</form>
+</div>
+
+<div class="footer">
+	<button class="btn btn-common" mat-button (click)="updDetails(data.marker)">
+	  OK
+	</button>
+</div>
