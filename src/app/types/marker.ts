@@ -3,4 +3,5 @@ export class Marker {
 	lat: number;
 	lng: number;
 	balloonText: string;
+	hintText: string;
 }

@@ -12,14 +12,15 @@ import { MarkersService } from '../../services/markers.service';
 })
 export class MarkerDetailsComponent implements OnInit {
 
-	private balloonText: string = '';
+  private balloonText: string = '';
+	private hintText: string = '';
 
   constructor(private matDialogRef: MatDialogRef<MarkerDetailsComponent>,
               private markersService: MarkersService,
   						@Inject(MAT_DIALOG_DATA) public data: any) 
   { 
-  	this.balloonText = this.data.marker.balloonText;  
-    console.log(this.data.marker);	
+    this.balloonText = this.data.marker.balloonText;  
+  	this.hintText = this.data.marker.hintText;  
   }
 
   ngOnInit() {
@@ -28,6 +29,7 @@ export class MarkerDetailsComponent implements OnInit {
 
   private updDetails(marker) {
     marker['balloonText'] = this.balloonText;
+    marker['hintText'] = this.hintText;
     this.markersService.updMarker(marker);
     this.matDialogRef.close();
   };

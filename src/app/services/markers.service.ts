@@ -29,9 +29,8 @@ export class MarkersService {
 
   	markers.forEach((marker) => {
   		if(marker.id == markerObj.id) {
-        console.log('marker', marker);
         marker['balloonText'] = markerObj.balloonText;
-        console.log('newMarker', marker);
+        marker['hintText'] = markerObj.hintText;
   		}
   	});
 

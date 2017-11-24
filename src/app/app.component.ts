@@ -33,7 +33,8 @@ export class AppComponent implements OnInit {
   				id: marker.id,
   				lat: marker.lat,
   				lng: marker.lng,
-          balloonText: marker.balloonText
+          balloonText: marker.balloonText,
+          hintText: marker.hintText
   			});
   		});
   };
