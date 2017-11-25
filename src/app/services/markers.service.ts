@@ -10,6 +10,19 @@ export class MarkersService {
   	return localStorage.markers ? JSON.parse(localStorage.markers) : [];
   };
 
+  removeMarker(markerObj) {  
+    let newMarkers = [];
+    let markers = this.getMarkers();
+
+    markers.forEach((marker, i) => {
+      if(marker.id != markerObj.id) {
+        newMarkers.push(marker);
+      }
+    });
+
+    localStorage.markers = JSON.stringify(newMarkers);    
+  };
+
   addMarker(newMarker) {	
   	let markers = this.getMarkers();  	
 	  markers.push(newMarker);

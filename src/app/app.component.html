@@ -6,6 +6,8 @@
               [latitude]="marker.lat" 
               [longitude]="marker.lng"
               [title]="sdfdsfdfsdf"
+              [markerDraggable]="marker.draggable" 
+              (dragEnd)="markerDragEnd(marker, $event)"
               (contextmenu)="onRightClick(marker, $event)"
               (markerClick)="openUpdModal(marker)"></agm-marker>
 </agm-map>

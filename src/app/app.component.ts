@@ -34,7 +34,8 @@ export class AppComponent implements OnInit {
   				lat: marker.lat,
   				lng: marker.lng,
           balloonText: marker.balloonText,
-          hintText: marker.hintText
+          hintText: marker.hintText,
+          draggable: marker.draggable
   			});
   		});
   };
@@ -59,9 +60,18 @@ export class AppComponent implements OnInit {
       lat: ev.coords.lat,
       lng: ev.coords.lng,
       balloonText: '',
-      hintText: ''      
+      hintText: '',
+      draggable: true     
     };
   	this.markers.push(newMarker);
     this.markersService.addMarker(newMarker);
+  };
+
+  private markerDragEnd(marker, event) {
+    this.markersService.removeMarker(marker);
+
+    marker.lat = event.coords.lat;
+    marker.lng = event.coords.lng;
+    this.markersService.addMarker(marker);
   };
 }

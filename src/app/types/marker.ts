@@ -4,4 +4,5 @@ export class Marker {
 	lng: number;
 	balloonText: string;
 	hintText: string;
+	draggable: true;
 }
