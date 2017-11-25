@@ -10,17 +10,9 @@ export class MarkersService {
   	return localStorage.markers ? JSON.parse(localStorage.markers) : [];
   };
 
-  addMarker(markerObj) {	
-  	let markers = this.getMarkers();
-  	let id = 'id_' + Date.now() + '_' + performance.now();
-
-	  markers.push({
-	  	id: id,
-	    lat: markerObj.coords.lat, 
-	    lng: markerObj.coords.lng,
-      balloonText: ''
-	  });
-
+  addMarker(newMarker) {	
+  	let markers = this.getMarkers();  	
+	  markers.push(newMarker);
 	  localStorage.markers = JSON.stringify(markers);
   };
 
@@ -33,8 +25,6 @@ export class MarkersService {
         marker['hintText'] = markerObj.hintText;
   		}
   	});
-
-    console.log(markers);
 
 	  localStorage.markers = JSON.stringify(markers);
   };    

@@ -53,8 +53,15 @@ export class AppComponent implements OnInit {
 		});  	
   };
 
-  private mapClick(ev) {
-  	this.markersService.addMarker(ev);
-  	this.renderMarkers();
+  private mapClick(ev) {  	
+    let newMarker: Marker = {
+      id: 'id_' + Date.now() + '_' + performance.now(),
+      lat: ev.coords.lat,
+      lng: ev.coords.lng,
+      balloonText: '',
+      hintText: ''      
+    };
+  	this.markers.push(newMarker);
+    this.markersService.addMarker(newMarker);
   };
 }
